@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--ип события – может быть как своим, так и встроенным, к примеру "click".-->
+<!---->
+<!--Флаги – объект вида { bubbles: true/false, cancelable: true/false }, где свойство bubbles указывает, всплывает ли событие, а cancelable – можно ли отменить действие по умолчанию.-->
+<!---->
+<!--Флаги по умолчанию: {bubbles: false, cancelable: false}.-->
+
+<!--проверить кнопку нажал человек или скрипт віполнился автоматически-->
+<!--event.isTrusted-->
+<!--true, если посетитель кликнул сам-->
+<!--false – если событие инициировал скрипт.-->
+<button id="elem" onclick="alert('Клик');">Автоклик</button>
+
+<script>
+    var event = new Event("click");
+    elem.dispatchEvent(event);
+</script>
+</body>
+</html>

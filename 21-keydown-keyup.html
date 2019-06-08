@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>Нажмите в поле кнопку</div>
+<input onkeydown="this.nextSibling.innerHTML = event.keyCode"><span></span> <b></b>
+<input onkeypress="this.nextSibling.innerHTML = getChar(event)+''"><span></span><b></b>
+<pre>
+    Таблица несовместимостей:
+    Клавиша	Firefox	Остальные браузеры
+    ;	59	186
+    =	107	187
+    -	109	189
+
+    Любые буквы, цифры генерируют keypress. Управляющие клавиши, такие как Ctrl, Shift, F1, F2… – keypress не генерируют.
+
+
+
+    <div>Отмена пользовательского ввода</div>
+    <input onkeydown="return false" type="text" size="30">
+<input onkeypress="return false" type="text" size="30">
+
+    <!--На момент срабатывания keydown/keypress клавиша ещё не обработана браузером.-->
+
+    <!--А что, если мы хотим обработать input.value именно после ввода? Самое простое решение – использовать событие -->
+    <!--keyup, либо запланировать обработчик через setTimeout(..,0).-->
+
+    <!--можно отменить любую комбинацию кроме кобинаций windows к примеру  Alt+F4 -->
+</pre>
+<script>
+    function getChar(event) {
+        if (event.which == null) { // IE
+            if (event.keyCode < 32) return null; // спец. символ
+            console.log(String.fromCharCode(event.keyCode));
+            return String.fromCharCode(event.keyCode)
+        }
+
+        if (event.which != 0 && event.charCode != 0) { // все кроме IE
+            if (event.which < 32) return null; // спец. символ
+            console.log(event.charCode);
+            return String.fromCharCode(event.which); // остальные
+        }
+
+        return null; // спец. символ
+    }
+    // getChar(this);
+</script>
+</body>
+</html>

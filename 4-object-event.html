@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+event.type
+Тип события, в данном случае click
+
+event.currentTarget
+Элемент, на котором сработал обработчик. Значение – в точности такое же, как и у this, но бывают ситуации, когда обработчик является методом объекта и его this при помощи bind привязан к этому объекту, тогда мы можем использовать event.currentTarget.
+
+event.clientX / event.clientY
+Координаты курсора в момент клика (относительно окна)
+
+
+Для всех браузеров
+element.onclick = function(event) {
+event = event || window.event; // (*)
+
+
+</body>
+</html>

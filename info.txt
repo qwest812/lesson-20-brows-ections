@@ -1,0 +1,2 @@
+mouseover mouse out
+https://learn.javascript.ru/mousemove-mouseover-mouseout-mouseenter-mouseleave

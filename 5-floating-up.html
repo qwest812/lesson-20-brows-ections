@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Всплывание</title>
+</head>
+<body>
+<!--focus не всплывает-->
+<!--event.target – это исходный элемент, на котором произошло событие, в процессе всплытия он неизменен.-->
+<!--this (=event.currentTarget)  – это текущий элемент, до которого дошло всплытие, на нём сейчас выполняется обработчик.-->
+<div onclick="alert('Обработчик для Div сработал!')">
+    <em>Кликните на <code>EM</code>, сработает обработчик на <code>DIV</code></em>
+</div>
+
+
+<style>
+    body * {
+        margin: 10px;
+        border: 1px solid blue;
+    }
+</style>
+
+<form onclick="alert('form')">FORM
+    <div onclick="alert('div')">DIV
+        <p onclick="alert('p')">P</p>
+    </div>
+</form>
+</body>
+</html>

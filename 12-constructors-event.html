@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+UIEvent
+FocusEvent
+MouseEvent
+WheelEvent
+KeyboardEvent
+CompositionEvent
+
+Вместо new Event("click") можно вызвать new MouseEvent("click").
+
+<script>var e = new MouseEvent("click", {
+    bubbles: true,
+    cancelable: true,
+    clientX: 100,
+    clientY: 100
+});
+
+alert( e.clientX ); // 100</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        form {
+            background-color: green;
+            position: relative;
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        div {
+            background-color: blue;
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            width: 100px;
+            height: 100px;
+        }
+
+        p {
+            background-color: red;
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            margin: 0;
+        }
+
+        body {
+            line-height: 25px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<!--Создать 3 вложеных DIV елемента. Повесить на них обработку на клик при погружении и при всплывании c помощью делегирования. Проследить разницу.-->
+<form>FORM
+    <div>DIV
+        <p>P</p>
+    </div>
+</form>
+<script>
+    // for dipping and floating up
+    var elems = document.querySelectorAll('form,div,p');
+    function highlightThis() {
+        this.style.backgroundColor = 'yellow';
+        alert(this.tagName);
+        this.style.backgroundColor = '';
+    }
+    for (var i = 0; i < elems.length; i++) {
+        elems[i].addEventListener("click", highlightThis, true);
+        elems[i].addEventListener("click", highlightThis, false);
+    }
+
+</script>
+</body>
+</html>

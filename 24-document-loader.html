@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+DOMContentLoaded – браузер полностью загрузил HTML и построил DOM-дерево.
+load – браузер загрузил все ресурсы.
+beforeunload/unload – уход со страницы.
+<script>
+    function ready() {
+        alert( 'DOM готов' );
+        alert( "Размеры картинки: " + img.offsetWidth + "x" + img.offsetHeight );
+    }
+
+    document.addEventListener("DOMContentLoaded", ready);
+</script>
+
+<img id="img" src="205739ba060e909.jpg">
+
+<!--Если в документе есть теги <script>, то браузер обязан их выполнить до того, как построит DOM. Поэтому событие DOMContentLoaded ждёт загрузки и выполнения таких скриптов.-->
+<!---->
+    <!--Исключением являются скрипты с атрибутами async и defer, которые подгружаются асинхронно.-->
+</body>
+</html>

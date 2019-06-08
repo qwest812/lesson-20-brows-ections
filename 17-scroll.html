@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="height: 6000px">
+<div id="showScroll" style="position: fixed; margin: 50px "></div>
+<script>
+    window.onscroll = function() {
+        var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        document.getElementById('showScroll').innerHTML = scrolled + 'px';
+    }
+</script>
+</body>
+</html>

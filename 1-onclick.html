@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="elem" type="button" value="Нажми меня" />
+<button onclick="alert(this.innerHTML)">Нажми меня</button>
+<div onclick=test()>Test</div>
+<script>
+elem.onclick = function() {
+    console.log('Спасибо');
+};
+function  test() {
+    console.log(123);
+}
+</script>
+</body>
+</html>

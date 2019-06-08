@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+shiftKey
+altKey
+ctrlKey
+metaKey (для Mac)
+
+Mac вместо Ctrl используется Cmd
+
+<button>Alt+Shift+Кликни меня!</button>
+
+
+
+<script>
+    document.body.children[0].onclick = function(e) {
+        if (!e.altKey || !e.shiftKey) return;
+        alert( 'Ура!' );
+    }
+</script>
+</body>
+</html>

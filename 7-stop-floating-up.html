@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--То есть, stopPropagation препятствует продвижению события дальше, но на текущем элементе все обработчики отработают.-->
+<!---->
+<!--Для того, чтобы полностью остановить обработку, современные браузеры поддерживают метод event.stopImmediatePropagation(). Он не только предотвращает всплытие, но и останавливает обработку событий на текущем элементе.-->
+<body onclick="alert('сюда обработка не дойдёт')">
+<button onclick="event.stopPropagation()">Кликни меня</button>
+</body>
+</html>

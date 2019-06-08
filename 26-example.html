@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Создать функцию preloadImages(sources, callback), которая предзагружает изображения из массива sources, и после загрузки вызывает функцию callback.-->
+
+<!--Создайте переменную-счетчик для подсчёта количества загруженных картинок, и увеличивайте при каждом onload/onerror.-->
+
+<!--Когда счетчик станет равен количеству картинок – вызывайте callback.-->
+<script>
+    function preloadImages(sources, callback) {
+        var counter = 0;
+
+        function onLoad() {
+            counter++;
+            if (counter == sources.length) callback();
+        }
+
+        for (var i = 0; i < sources.length; i++) {
+            var img = document.createElement('img');
+            // сначала onload/onerror, затем src - важно для IE8-
+            img.onload = img.onerror = onLoad;
+            img.src = sources[i];
+        }
+
+    }
+
+    // ---------- Проверка ----------
+
+    var sources = [
+        "https://js.cx/images-load/1.jpg",
+        "https://js.cx/images-load/2.jpg",
+        "https://js.cx/images-load/3.jpg"
+    ];
+    for (var i = 0; i < sources.length; i++) {
+        sources[i] += '?' + Math.random();
+    }
+
+    function testLoaded() {
+        var widthSum = 0;
+        for (var i = 0; i < sources.length; i++) {
+            var img = document.createElement('img');
+            img.src = sources[i];
+            widthSum += img.width;
+        }
+        alert(widthSum); // 300!
+    }
+
+    // до загрузки - 0
+    testLoaded();
+    // после загрузки - 300
+    preloadImages(sources, testLoaded);
+</script>
+</body>
+</html>

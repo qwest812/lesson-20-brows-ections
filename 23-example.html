@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--При помощи событий клавиатуры сделать так, чтобы в поле можно было вводить только цифры.-->
+<input typeof="text" id="value" onkeydown="return onluNumber(event)">
+<script>
+    let input = document.getElementById("value");
+    console.log(input);
+
+
+    function onluNumber(e) {
+        let kod =e.which;
+        if(kod>=48 && kod <=57){
+            return true;
+        }
+        console.log(e);
+        return false;
+    }
+</script>
+</body>
+</html>
